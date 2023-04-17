@@ -48,7 +48,7 @@ export function CandlestickChartCrosshair({
     GestureEvent<LongPressGestureHandlerEventPayload>
   >({
     onActive: ({ x, y }) => {
-      const boundedX = x <= width - 1 ? x : width - 1;
+      const boundedX = Math.max(0, x <= width - 1 ? x : width - 1);
       if (boundedX < 100) {
         tooltipPosition.value = 'right';
       } else {
